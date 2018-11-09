@@ -84,7 +84,7 @@ export default class Carousel extends React.Component {
     this.renderControls = this.renderControls.bind(this);
     this.setSlideHeightAndWidth = this.setSlideHeightAndWidth.bind(this);
     this.calcSlideHeightAndWidth = this.calcSlideHeightAndWidth.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
+    // this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
   componentDidMount() {
@@ -192,15 +192,15 @@ export default class Carousel extends React.Component {
 
         const length = this.props.vertical
           ? Math.round(
-              Math.sqrt(
-                Math.pow(e.touches[0].pageY - this.touchObject.startY, 2)
-              )
+            Math.sqrt(
+              Math.pow(e.touches[0].pageY - this.touchObject.startY, 2)
             )
+          )
           : Math.round(
-              Math.sqrt(
-                Math.pow(e.touches[0].pageX - this.touchObject.startX, 2)
-              )
-            );
+            Math.sqrt(
+              Math.pow(e.touches[0].pageX - this.touchObject.startX, 2)
+            )
+          );
 
         this.touchObject = {
           startX: this.touchObject.startX,
@@ -215,12 +215,12 @@ export default class Carousel extends React.Component {
           left: this.props.vertical
             ? 0
             : this.getTargetLeft(
-                this.touchObject.length * this.touchObject.direction
-              ),
+              this.touchObject.length * this.touchObject.direction
+            ),
           top: this.props.vertical
             ? this.getTargetLeft(
-                this.touchObject.length * this.touchObject.direction
-              )
+              this.touchObject.length * this.touchObject.direction
+            )
             : 0
         });
       },
@@ -277,11 +277,11 @@ export default class Carousel extends React.Component {
 
         const length = this.props.vertical
           ? Math.round(
-              Math.sqrt(Math.pow(e.clientY - this.touchObject.startY, 2))
-            )
+            Math.sqrt(Math.pow(e.clientY - this.touchObject.startY, 2))
+          )
           : Math.round(
-              Math.sqrt(Math.pow(e.clientX - this.touchObject.startX, 2))
-            );
+            Math.sqrt(Math.pow(e.clientX - this.touchObject.startX, 2))
+          );
 
         // prevents disabling click just because mouse moves a fraction of a pixel
         if (length >= 10) this.clickDisabled = true;
@@ -299,12 +299,12 @@ export default class Carousel extends React.Component {
           left: this.props.vertical
             ? 0
             : this.getTargetLeft(
-                this.touchObject.length * this.touchObject.direction
-              ),
+              this.touchObject.length * this.touchObject.direction
+            ),
           top: this.props.vertical
             ? this.getTargetLeft(
-                this.touchObject.length * this.touchObject.direction
-              )
+              this.touchObject.length * this.touchObject.direction
+            )
             : 0
         });
       },
@@ -556,14 +556,14 @@ export default class Carousel extends React.Component {
             left: props.vertical
               ? 0
               : this.getTargetLeft(
-                  this.state.slideWidth,
-                  prevState.currentSlide
-                ),
+                this.state.slideWidth,
+                prevState.currentSlide
+              ),
             top: props.vertical
               ? this.getTargetLeft(
-                  this.state.slideWidth,
-                  prevState.currentSlide
-                )
+                this.state.slideWidth,
+                prevState.currentSlide
+              )
               : 0,
             currentSlide: 0,
             isWrappingAround: true,
@@ -749,7 +749,7 @@ export default class Carousel extends React.Component {
     this.setState(this.calcSlideHeightAndWidth());
   }
 
-  setDimensions(props, stateCb = () => {}) {
+  setDimensions(props, stateCb = () => { }) {
     props = props || this.props;
 
     const { slidesToShow, cellAlign } = getPropsByTransitionMode(props, [
@@ -964,11 +964,11 @@ Carousel.propTypes = {
 };
 
 Carousel.defaultProps = {
-  afterSlide() {},
+  afterSlide() { },
   autoplay: false,
   autoplayInterval: 3000,
   autoGenerateStyleTag: true,
-  beforeSlide() {},
+  beforeSlide() { },
   cellAlign: 'left',
   cellSpacing: 0,
   dragging: true,
@@ -978,7 +978,7 @@ Carousel.defaultProps = {
   frameOverflow: 'hidden',
   heightMode: 'max',
   transitionMode: 'scroll',
-  onResize() {},
+  onResize() { },
   slideIndex: 0,
   slidesToScroll: 1,
   slidesToShow: 1,
